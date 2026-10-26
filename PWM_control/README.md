@@ -766,6 +766,43 @@ De esta manera, el comparador permite generar un pulso de 1 ms dentro de un per�
 
 ## Simulaciones
 
+
+## Implementación de compuertas AND y OR
+
+Durante el diseño del generador PWM se incorporaron compuertas **AND y OR** para controlar el reinicio de los contadores.
+
+### Compuerta AND
+
+La compuerta AND permite que el contador PWM se reinicie automáticamente cuando alcanza el valor 19.999 y se activa la señal de habilitación `tick`.
+
+$$
+CLR_{PWM}=(contador_{PWM}=19999)\land tick
+$$
+
+De esta manera, el reinicio se coordina con la señal que habilita el incremento del contador cada 1 µs.
+
+### Compuertas OR
+
+Las compuertas OR permiten combinar el reinicio automático de cada contador con la señal externa `rst`.
+
+**Contador divisor:**
+
+$$
+CLR_{div}=(contador_{div}=49)\lor rst
+$$
+
+**Contador PWM:**
+
+$$
+CLR_{PWM}=[(contador_{PWM}=19999)\land tick]\lor rst
+$$
+
+Así, ambos contadores pueden reiniciarse automáticamente al finalizar su conteo o mediante la señal externa `rst`.
+
+En conjunto, estas compuertas permiten controlar las condiciones de reinicio del sistema, manteniendo la coordinación entre los contadores y la base de tiempo del PWM.
+
+
+
 ### Simulación 1
 ![Simulación 1](1.png)
 ![Simulación 1](1.1.png)
