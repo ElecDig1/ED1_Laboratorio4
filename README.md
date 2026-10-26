@@ -80,5 +80,3 @@ Testbench autoverificable con el modelo del teclado de la guía, con rebote (`CL
 | `rows[0..3]` | out | PIN_28, 31, 33, 38 | Header, fila superior (R1–R4) |
 | `cols[0..3]` | in | PIN_30, 32, 34, 39 | Header, fila inferior (C1–C4), pull-up |
 | `key_valid` | out | PIN_42 | Header (instrumentación) |
-
-**Pull-ups:** `Weak Pull-Up Resistor = On` en `cols[0..3]` (Assignment Editor). Todo a 3,3 V LVTTL. El teclado es pasivo: no conectar 3,3 V ni GND.
