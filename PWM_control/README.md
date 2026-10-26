@@ -527,13 +527,11 @@ Donde $T_{on}$ está expresado en microsegundos.
 
 Como el circuito trabaja con una resolución de 1 µs, se utilizan los valores enteros más cercanos:
 
+
 $$
-\boxed{
-N_{alto}=
-\operatorname{round}
-\left(1000+\frac{1000}{15}\cdot pos\right)
-}
+N_{alto}=\mathrm{round}\left(1000+\frac{1000}{15}\cdot pos\right)
 $$
+
 
 La operación de redondeo se aplica al definir las constantes del circuito.
 
@@ -748,7 +746,7 @@ D=\frac{1}{20}\cdot100\%
 $$
 
 $$
-\boxed{D=5\%}
+\boxed{D=5}
 $$
 
 Por tanto, para esta selección se obtiene una señal PWM con las siguientes características:
