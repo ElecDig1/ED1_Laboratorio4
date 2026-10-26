@@ -1,6 +1,4 @@
-# Lab 4 – Parte 2: Teclado matricial 4×4 — Resumen del pre-informe
-
-FPGA A-C4E6E10 (Cyclone IV E, reloj 50 MHz). Revisión rápida.
+# Lab 4 – Parte 2: Teclado matricial 4×4 
 
 ## 1. Diseño en una mirada
 
