@@ -62,14 +62,14 @@ Si el servo no llega a los extremos, amplía `PULSO_MIN_US` o `PULSO_MAX_US`. Si
 ## Simulaciones
 
 ### Simulación 1
-![Simulación 1](simulaciones/1.png)
-![Simulación 1](simulaciones/1.1.png)
+![Simulación 1](1.png)
+![Simulación 1](1.1.png)
 
 ### Simulación 2
-![Simulación 2](simulaciones/2.png)
-![Simulación 1](simulaciones/2.2.png)
+![Simulación 2](2.png)
+![Simulación 1](2.2.png)
 
 ### Simulación 3
-![Simulación 3](simulaciones/3.png)
-![Simulación 3](simulaciones/3.3.png)
+![Simulación 3](3.png)
+![Simulación 3](3.3.png)
 
