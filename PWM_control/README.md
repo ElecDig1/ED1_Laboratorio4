@@ -404,13 +404,15 @@ $$
 
 Para el pulso máximo:
 
-$$
-D_{max}=\frac{2}{20}\cdot100\%
-$$
 
-$$
-\boxed{D_{max}=10\%}
-$$
+```math
+D_{\mathrm{max}}=\frac{2}{20}\cdot100\,\%
+```
+
+```math
+\boxed{D_{\mathrm{max}}=10\,\%}
+```
+
 
 Por tanto, la señal PWM presenta un ciclo de trabajo variable entre el 5 % y el 10 %.
 
