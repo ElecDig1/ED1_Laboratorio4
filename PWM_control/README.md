@@ -630,6 +630,7 @@ Así, no es necesario realizar operaciones de división o multiplicación dentro
 
 ---
 
+
 ## Diseño del comparador PWM
 
 La generación de la señal PWM se realiza comparando dos valores:
@@ -640,18 +641,26 @@ La generación de la señal PWM se realiza comparando dos valores:
 La condición lógica utilizada es:
 
 $$
-\boxed{PWM=(contador\_PWM<referencia)}
+\boxed{\mathrm{PWM}=(\mathrm{contador}_{PWM}\lt\mathrm{referencia})}
 $$
 
 Esto significa que:
 
 $$
-PWM=
+\mathrm{PWM}=
 \begin{cases}
-1, & contador\_PWM<referencia\\
-0, & contador\_PWM\geq referencia
+1 & \text{si } \mathrm{contador}_{PWM}\lt\mathrm{referencia} \\
+0 & \text{si } \mathrm{contador}_{PWM}\geq\mathrm{referencia}
 \end{cases}
 $$
+
+Por tanto, el comparador genera un nivel lógico alto mientras el valor del contador sea inferior a la referencia seleccionada.
+
+Cuando el contador alcanza o supera dicha referencia, la salida cambia a un nivel lógico bajo.
+
+Este procedimiento permite modificar el ancho del pulso sin alterar el período total de la señal.
+
+---
 
 ### Ejemplo para un pulso de 1 ms
 
@@ -667,7 +676,7 @@ Mientras el contador tenga valores comprendidos entre 0 y 999:
 PWM = 1
 ```
 
-Al alcanzar 1000:
+Al alcanzar el valor 1000:
 
 ```text
 PWM = 0
@@ -676,18 +685,54 @@ PWM = 0
 Como cada incremento equivale a 1 µs, la salida permanece activa durante:
 
 $$
-1000\cdot1\ \mu s=1\ \text{ms}
+T_{on}=1000\cdot1\ \mu s
 $$
 
-El tiempo restante del período es:
+$$
+\boxed{T_{on}=1\ \text{ms}}
+$$
+
+El tiempo restante del período corresponde al estado bajo de la señal:
 
 $$
-T_{off}=20-1
+T_{off}=T_{PWM}-T_{on}
+$$
+
+Sustituyendo:
+
+$$
+T_{off}=20\ \text{ms}-1\ \text{ms}
 $$
 
 $$
 \boxed{T_{off}=19\ \text{ms}}
 $$
+
+El ciclo de trabajo correspondiente es:
+
+$$
+D=\frac{T_{on}}{T_{PWM}}\cdot100\%
+$$
+
+$$
+D=\frac{1}{20}\cdot100\%
+$$
+
+$$
+\boxed{D=5\%}
+$$
+
+Por tanto, para esta selección se obtiene una señal PWM con las siguientes características:
+
+| Parámetro | Valor |
+|---|---|
+| Período total | 20 ms |
+| Frecuencia | 50 Hz |
+| Tiempo en alto | 1 ms |
+| Tiempo en bajo | 19 ms |
+| Ciclo de trabajo | 5 % |
+
+De esta manera, el comparador permite generar un pulso de 1 ms dentro de un período de 20 ms, manteniendo constante la frecuencia de operación.
 
 
 
