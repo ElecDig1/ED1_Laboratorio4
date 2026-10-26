@@ -384,41 +384,68 @@ Esto significa que la señal PWM debe permanecer en estado alto durante un núme
 
 El resto del período permanecerá en estado bajo.
 
+
 ### Ciclo de trabajo
 
-El ciclo de trabajo se define como:
+El ciclo de trabajo (*Duty Cycle*) representa el porcentaje del período total durante el cual la señal PWM permanece en estado alto.
+
+Se define mediante la siguiente expresión:
 
 $$
-D=\frac{T_{on}}{T_{PWM}}\cdot100\%
+D=\frac{T_{on}}{T_{PWM}}\cdot 100
 $$
 
-Para el pulso mínimo:
+Donde:
+
+- $D$: ciclo de trabajo expresado en porcentaje (%).
+- $T_{on}$: tiempo durante el cual la señal permanece en estado alto.
+- $T_{PWM}$: período total de la señal PWM.
+
+Para este diseño se estableció un período constante de 20 ms, mientras que el ancho del pulso varía entre 1 ms y 2 ms.
+
+#### Ciclo de trabajo mínimo
+
+Para un pulso de 1 ms:
 
 $$
-D_{min}=\frac{1}{20}\cdot100\%
+D_{min}=\frac{1}{20}\cdot 100
 $$
 
 $$
-\boxed{D_{min}=5\%}
+\boxed{D_{min}=5}
 $$
 
-Para el pulso máximo:
+Por tanto, el ciclo de trabajo mínimo corresponde al **5 %**.
 
+#### Ciclo de trabajo máximo
 
-```math
-D_{\mathrm{max}}=\frac{2}{20}\cdot100\,\%
-```
+Para un pulso de 2 ms:
 
-```math
-\boxed{D_{\mathrm{max}}=10\,\%}
-```
+$$
+D_{max}=\frac{2}{20}\cdot 100
+$$
 
+$$
+\boxed{D_{max}=10}
+$$
 
-Por tanto, la señal PWM presenta un ciclo de trabajo variable entre el 5 % y el 10 %.
+Por tanto, el ciclo de trabajo máximo corresponde al **10 %**.
 
-Aunque cambia el ciclo de trabajo, el período permanece constante en 20 ms.
+#### Resultados obtenidos
 
----
+| Parámetro | Valor |
+|---|---|
+| Frecuencia PWM | 50 Hz |
+| Período PWM | 20 ms |
+| Ancho de pulso mínimo | 1 ms |
+| Ancho de pulso máximo | 2 ms |
+| Ciclo de trabajo mínimo | 5 % |
+| Ciclo de trabajo máximo | 10 % |
+
+De esta manera, la señal PWM presenta un ciclo de trabajo variable entre el **5 % y el 10 %**, manteniendo constante su período de 20 ms.
+
+Esta característica permite controlar la posición del servomotor mediante la variación del tiempo en estado alto de la señal, sin modificar su frecuencia de operación.
+
 
 ## Cálculo de las 16 posiciones del servomotor
 
