@@ -56,3 +56,20 @@ La simulación tarda cerca de un minuto y termina con `RESULTADO: TODAS LAS PRUE
 ## Calibración
 
 Si el servo no llega a los extremos, amplía `PULSO_MIN_US` o `PULSO_MAX_US`. Si zumba o se fuerza en un extremo, está chocando con su tope mecánico: reduce el rango, por ejemplo a 600–2400 µs.
+
+
+
+## Simulaciones
+
+### Simulación 1
+![Simulación 1](simulaciones/1.png)
+![Simulación 1](simulaciones/1.1.png)
+
+### Simulación 2
+![Simulación 2](simulaciones/2.png)
+![Simulación 1](simulaciones/2.2.png)
+
+### Simulación 3
+![Simulación 3](simulaciones/3.png)
+![Simulación 3](simulaciones/3.3.png)
+
